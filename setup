@@ -16,7 +16,7 @@ PACKAGES=(
     ripgrep
 )
 
-sudo apt-get update -qq && sudo apt-get install "${PACKAGES[@]}"
+sudo apt-get update -qq && sudo apt-get -y install "${PACKAGES[@]}"
 
 curl -sS https://starship.rs/install.sh | sh
 
