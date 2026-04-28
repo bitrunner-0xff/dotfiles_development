@@ -15,7 +15,7 @@ PACKAGES=(
     starship
 )
 
-sudo apt-get update -qq && sudo apt install "$PACKAGES[@]"
+sudo apt-get update -qq && sudo apt-get install "${PACKAGES[@]}"
 
 sudo ln -sf /usr/bin/fdfind /usr/local/bin/fd
 
