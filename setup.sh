@@ -2,6 +2,24 @@
 
 set -euo pipefail
 
+PACKAGES=(
+    fd
+    jq
+    git
+    bat
+    fzf
+    nvim
+    ripgrep
+    starship
+)
+
+for package in "$PACKAGES[@]"; do
+    echo "Installing $package"
+    sudo apt install "$package"
+done
+
+echo "Setup script finished successfully"
+
 export XDG_CONFIG_HOME="$HOME/.config"
 mkdir -p "$XDG_CONFIG_HOME"
 PWD=$(pwd)
@@ -23,21 +41,3 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosugges
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
 
 source ~/.zshrc
-
-PACKAGES=(
-    fd
-    jq
-    git
-    bat
-    fzf
-    nvim
-    ripgrep
-    starship
-)
-
-for package in "$PACKAGES[@]"; do
-    echo "Installing $package"
-    sudo apt install "$package"
-done
-
-echo "Setup script finished successfully"

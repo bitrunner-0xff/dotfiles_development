@@ -35,13 +35,6 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_FIND_NO_DUPS
 
 
-# ===== Hyprland =====
-
-if [ "$(tty)" = "/dev/tty1" ]; then
-    start-hyprland
-fi
-
-
 # ===== Aliases =====
 
 alias ll='ls -Alh --color=auto'
@@ -51,7 +44,6 @@ alias egrep='egrep --color=auto'
 alias diff='diff --color=auto'
 alias ip='ip --color=auto'
 
-alias mpv_hdr='mpv --vo=gpu-next --target-colorspace-hint --gpu-api=vulkan --gpu-context=waylandvk'
 alias v='nvim'
 
 # Tree
@@ -79,41 +71,8 @@ export PATH="/home/glen/.local/bin:$PATH"
 export EDITOR=nvim
 export VISUAL=nvim
 
-# PASS 
-export PASSWORD_STORE_ENABLE_EXTENSIONS=true
-export PASSWORD_STORE_EXTENSIONS_DIR=$XDG_DATA_HOME/password-store/.extensions
-
-# Ranger
-export RANGER_LOAD_DEFAULT_RC=FALSE
-
 # Fix ls color for folders with 777 permissions
 export LS_COLORS="$LS_COLORS:ow=30;44:"
-
-# PAGER
-export LESS_TERMCAP_mb=$(tput bold; tput setaf 1)
-export LESS_TERMCAP_md=$(tput bold; tput setaf 1)
-export LESS_TERMCAP_me=$(tput sgr0)
-export LESS_TERMCAP_se=$(tput sgr0)
-export LESS_TERMCAP_so=$(tput bold; tput setaf 3; tput setab 4)
-export LESS_TERMCAP_ue=$(tput sgr0)
-export LESS_TERMCAP_us=$(tput smul; tput bold; tput setaf 2)
-export LESS_TERMCAP_mr=$(tput rev)
-export LESS_TERMCAP_mh=$(tput dim)
-export LESS_TERMCAP_ZN=$(tput ssubm)
-export LESS_TERMCAP_ZV=$(tput rsubm)
-export LESS_TERMCAP_ZO=$(tput ssupm)
-export LESS_TERMCAP_ZW=$(tput rsupm)
-export MANPAGER='less'
-
-# ===== Yazi =====
-
-function y() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-	command yazi "$@" --cwd-file="$tmp"
-	IFS= read -r -d '' cwd < "$tmp"
-	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
-	rm -f -- "$tmp"
-}
 
 
 # ===== Plugins =====
