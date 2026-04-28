@@ -1,3 +1,7 @@
+if [[ -z "$ZSH_VERSION" ]]; then
+    return 0  # or exit 0 if it's being sourced in a bad context
+fi
+
 # Prompt line: Starship
 eval "$(starship init zsh)"
 
