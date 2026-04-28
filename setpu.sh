@@ -29,6 +29,7 @@ PACKAGES=(
     jq
     bat
     fzf
+    nvim
     ripgrep
     starship
 )
