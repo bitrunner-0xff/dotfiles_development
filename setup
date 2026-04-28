@@ -3,19 +3,22 @@
 set -euo pipefail
 
 PACKAGES=(
-    fd
+    fd-find
     jq
     zsh
     git
     bat
     fzf
-    nvim
+    neovim
     tmux
+    curl
+    wget
     ripgrep
-    starship
 )
 
 sudo apt-get update -qq && sudo apt-get install "${PACKAGES[@]}"
+
+curl -sS https://starship.rs/install.sh | sh
 
 sudo ln -sf /usr/bin/fdfind /usr/local/bin/fd
 
