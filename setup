@@ -18,7 +18,7 @@ PACKAGES=(
 
 sudo apt-get update -qq && sudo apt-get -y install "${PACKAGES[@]}"
 
-curl -sS https://starship.rs/install.sh | sh
+curl -sS https://starship.rs/install.sh | sh -s -- --yes
 
 sudo ln -sf /usr/bin/fdfind /usr/local/bin/fd
 
