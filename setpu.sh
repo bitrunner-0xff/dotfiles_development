@@ -27,6 +27,7 @@ source ~/.zshrc
 PACKAGES=(
     fd
     jq
+    git
     bat
     fzf
     nvim
