@@ -1,6 +1,8 @@
-if [[ -z "$ZSH_VERSION" ]]; then
-    return 0  # or exit 0 if it's being sourced in a bad context
+if [[ -z "${ZSH_VERSION:-}" ]]; then
+    return 0 2>/dev/null || exit 0
 fi
+
+unsetopt nounset 2>/dev/null || true
 
 # Prompt line: Starship
 eval "$(starship init zsh)"
